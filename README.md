@@ -4,11 +4,10 @@
 2. Download & Install Recomended MongoDB Community Server at https://www.mongodb.com/try/download/community
 3. Download & Install Recomended NodeJS at https://nodejs.org/en/
 4. Download & Install Recomended Postman at https://www.postman.com/downloads/
-5. Launch terminal or command prompt in this project directory
-6. In the terminal or command prompt type "mongod --config mongod.conf" (this command will launch MongoDB instance)
-7. Launch new terminal or command prompt in this project and type "mongo" (this command will launch Mongo Shell)
-8. In the Mongo Shell type "rs.initiate()" (this function will launch MongoDB Replica Set)
-9. Launch new terminal or command prompt in this project and type "npm install" (this command will install required modules)
+5. Launch new terminal or command prompt in this project directory and type "mongod --config mongod.conf" (this command will launch MongoDB instance)
+6. Launch new terminal or command prompt in this project and type "mongo" (this command will launch Mongo Shell)
+7. In the Mongo Shell type "rs.initiate()" (this function will launch MongoDB Replica Set)
+8. Launch new terminal or command prompt in this project and type "npm install" (this command will install required modules)
 
 # How to Run Code Locally
 
