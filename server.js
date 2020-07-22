@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
 const bodyParser = require("body-parser");
 
 const Employee = require("./models/Employee");
@@ -31,30 +30,25 @@ app.post("/add_employees", async (req, res) => {
   session.startTransaction();
   try {
     const opts = { session };
-    const match = new Promise((resolve, _) => {
-      if (req.body.length > 0) {
-        for (let i = 0; i < req.body.length; i++) {
-          Employee.findOne({ login: req.body[i].login }).then((res) => {
-            if (res) {
-              errMsg = `User ${req.body[i].login} is already exists.`;
-              resolve(true);
-            }
-          });
-        }
-      } else {
-        Employee.findOne({ login: req.body.login }).then((res) => {
+
+    if (req.body.length > 0) {
+      for (let i = 0; i < req.body.length; i++) {
+        await Employee.findOne({ login: req.body[i].login }).then((res) => {
           if (res) {
-            errMsg = `Employee ${req.body.login} is already exists.`;
-            resolve(true);
+            errMsg = `User ${req.body[i].login} is already exists.`;
+            _match = true;
           }
         });
       }
-    });
-    await match.then((val) => {
-      if (val === true) {
-        _match = true;
-      }
-    });
+    } else {
+      await Employee.findOne({ login: req.body.login }).then((res) => {
+        if (res) {
+          errMsg = `Employee ${req.body.login} is already exists.`;
+          _match = true;
+        }
+      });
+    }
+
     if (_match === false) {
       await Employee.insertMany(req.body, opts).then((val) => {
         res.status(200).json(val);
