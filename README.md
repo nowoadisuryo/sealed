@@ -20,9 +20,10 @@
 
 ## Answer Section 2 : Programming Task
 1. Import Postman Collection in this project named "Sealed.postman_collection.json" to Postman
-2. To answer User Story 1, run Add Employees from the Postman Collection
-3. To answer User Story 2, run Get Employees from the Postman Collection
-4. To answer User Story 3, run Edit Employees from the Postman Collection
+2. Launch new terminal or command prompt in this project and type "npm run dev" (this command will start NodeJS server)
+3. To answer User Story 1, run Add Employees from the Postman Collection
+4. To answer User Story 2, run Get Employees from the Postman Collection
+5. To answer User Story 3, run Edit Employees from the Postman Collection
 
 # Tech Stack
 1. NodeJS
